@@ -1,0 +1,27 @@
+#!/bin/bash
+
+red=`tput setaf 1`
+reset=`tput sgr0`
+formatting=()
+
+for FILE in $(git diff --cached --name-only)
+do
+	if [[ "$FILE" =~ \.(c|h|cpp|cu|vsh|fsh)$ ]]; then
+		if [ -f "$FILE" ]; then
+			if ! clang-format --style=file --dry-run --Werror -i $FILE; then
+				formatting+=($FILE)
+			fi
+		fi
+	fi
+done
+
+if ((${#formatting[@]} != 0)); then
+	for i in ${!formatting[@]}; do
+  	echo "Formatting ${formatting[$i]}"
+  	clang-format --style=file -i ${formatting[$i]}
+  	git restore --staged ${formatting[$i]}
+	done
+
+	printf "${red}Commit was rejected because of clang-format.\nYou need to check correctness of changed files, add them to commit and repeat commit.\n${reset}"
+	exit 1;
+fi
