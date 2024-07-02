@@ -1,3 +1,3 @@
 # Game of life
 
-<img src="./assets/gameLife.gif" height="300%"/>
+<img src="./assets/gameLife.gif" width="100%"/>
