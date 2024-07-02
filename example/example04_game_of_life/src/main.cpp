@@ -1,13 +1,14 @@
 #include <raylib.h>
+
 #include <iostream>
 
 #include "Simulation.hpp"
 
 int main() {
   Color Grey = {35, 35, 35, 255};
-  const int WINDOW_WIDTH = 750;
-  const int WINDOW_HEIGHT = 750;
-  const int CELL_SIZE = 25;
+  const int WINDOW_WIDTH = 1280;
+  const int WINDOW_HEIGHT = 800;
+  const int CELL_SIZE = 10;
 
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Game of Life");
   Simulation simulation(WINDOW_WIDTH / CELL_SIZE, WINDOW_HEIGHT / CELL_SIZE, CELL_SIZE);
@@ -18,7 +19,6 @@ int main() {
       Vector2 mousePos = GetMousePosition();
       simulation.toggleCell(mousePos.x / CELL_SIZE, mousePos.y / CELL_SIZE);
     }
-
 
     if (IsKeyPressed(KEY_SPACE)) {
       if (simulation.isRunning()) {
