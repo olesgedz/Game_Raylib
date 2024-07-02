@@ -32,6 +32,7 @@ void Simulation::update() {
           _gridTemp.setCell(k, j, false);
         } else {
           _gridTemp.setCell(k, j, true);
+          _gridTemp.setCellLife(k, j, _grid.getCellLife(k, j) + 1);
         }
       } else {
         if (liveNeighbors == 3) {

@@ -8,7 +8,7 @@ int main() {
   Color Grey = {35, 35, 35, 255};
   const int WINDOW_WIDTH = 1280;
   const int WINDOW_HEIGHT = 800;
-  const int CELL_SIZE = 10;
+  const int CELL_SIZE = 5;
 
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Game of Life");
   Simulation simulation(WINDOW_WIDTH / CELL_SIZE, WINDOW_HEIGHT / CELL_SIZE, CELL_SIZE);
@@ -17,7 +17,7 @@ int main() {
     // Event processing
     if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
       Vector2 mousePos = GetMousePosition();
-      simulation.toggleCell(mousePos.x / CELL_SIZE, mousePos.y / CELL_SIZE);
+      simulation.toggleCell(mousePos.y / CELL_SIZE, mousePos.x / CELL_SIZE);
     }
 
     if (IsKeyPressed(KEY_SPACE)) {
