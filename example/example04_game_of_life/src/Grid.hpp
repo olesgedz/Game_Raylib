@@ -2,18 +2,25 @@
 
 #include <vector>
 
-class Grid
-{
+class Grid {
  public:
 
   Grid(int width, int height, int cellSize) :
-    _rows(height / cellSize), _colums(width / cellSize), _cellSize(cellSize), cells(_rows, std::vector<bool>(_colums, false))
+    _rows(height),
+        _columns(width), _cellSize(cellSize),
+        _cells(_rows, std::vector<bool>(_columns, false))
     {}
   void render();
-
+  void setCell(int x, int y, bool state);
+  bool getCell(int x, int y) const;
+  bool isWithInBound(int x, int y) const;
+  int getRows() const { return _rows; }
+  int getColumns() const { return _columns; }
+  void randomize();
+  void clear();
   private:
-  int _rows;
-  int _colums;
-  int _cellSize;
-  std::vector<std::vector<bool>> cells;
+    int _rows;
+    int _columns;
+    int _cellSize;
+    std::vector<std::vector<bool>> _cells;
 };
