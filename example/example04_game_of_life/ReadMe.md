@@ -1,2 +1,3 @@
 # Game of life
-![GameOfLife](./assets/gameLife.gif "gameLife")
+
+<img src="./assets/gameLife.gif" height="300%"/>
