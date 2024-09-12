@@ -1,1 +1,5 @@
-# CPP_Project_Template
+#RayLib sandbox
+
+##Game of life
+
+<img src="./assets/gameLife.gif" width="100%"/>
