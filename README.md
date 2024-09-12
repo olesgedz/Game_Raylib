@@ -1,5 +1,6 @@
-#RayLib sandbox
+# RayLib sandbox
 
-##Game of life
+## Game of Life
+<img src="example/example04_game_of_life//assets/gameLife.gif" width="100%"/>
 
-<img src="./assets/gameLife.gif" width="100%"/>
+
